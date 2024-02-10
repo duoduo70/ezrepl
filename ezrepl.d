@@ -24,6 +24,15 @@ public string parseCommand(string[] args) {
     else return parseNormalCommand(args, args.length);
 }
 
+public void repl() {
+    string line;
+    write("> ");
+    while((line = readln()) != "exit\n") {
+        if (line != "\n") writeln(parseCommand(line.split()));
+        write("> ");
+    }
+}
+
 string commandUndefined() {
     return "Undefined Command";
 }
